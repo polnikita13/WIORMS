@@ -1,0 +1,163 @@
+﻿@using PagedList;
+
+@using PagedList.Mvc;
+@model IEnumerable<finalProject.Models.Inward_Register>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<center><h2 class="text-danger pt-3">Inward Register</h2></center>
+
+<p>
+    @Html.ActionLink("New Entry of Inward Register", "Create")
+</p>
+<hr />
+@*
+    @using (Html.BeginForm("Index", "Inward_Register", FormMethod.Get))
+    {
+        <b> Search By: </b>
+        @Html.RadioButton("option", "InwardNumber", true) <text>Inward Number</text>
+        @Html.RadioButton("option", "Subject") <text>Subject</text><br />
+        @Html.TextBox("search") <input type="submit" name="submit" value="Search" / >
+    }*@
+
+
+
+    @{
+        var fromDate = (DateTime)ViewBag.fromDate;
+        var toDate = (DateTime)ViewBag.toDate;
+    }
+    @using (Html.BeginForm("Index", "Inward_Register", FormMethod.Get))
+    {
+        <div>
+            From Date: @Html.TextBox("fromDate", string.Format("{0:dd MMM yyy}", fromDate), new { @class = "datefield", type = "date" })
+            To Date: @Html.TextBox("toDate", string.Format("{0:dd MMM yyy}", toDate), new { @class = "datefield", type = "date" })
+            <input type="submit" value="Search" />
+        </div>
+    }
+<hr />
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().InwardNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().ReceivedOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().LetterDated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().ReceivedFrom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Subject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().FromAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().FromDistrict)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().FromState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().FromCountry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().ReplyFor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().ReplyDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().BrowseFile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Users)
+        </th>
+        <th></th>
+    </tr>
+
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="15">
+                No rows match seach criteria
+            </td>
+        </tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InwardNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReceivedOn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LetterDated)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReceivedFrom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromDistrict)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromState)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromCountry)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReplyFor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReplyDetails)
+                </td>
+                <td>
+                    <a href="@Url.Content(item.BrowseFile)" target="_blank">View File</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Users)
+                </td>
+                <td>
+                    @* @Html.ActionLink("Edit", "Edit", new { id = item.InwardNumber }) |
+        @Html.ActionLink("Details", "Detailsf", new { id = item.InwardNumber }) |*@
+                    @Html.ActionLink("Delete", "Delete", new { id = item.InwardNumber })
+                </td>
+            </tr>
+        }
+    }
+</table>
+
+<div>
+    <a href="@Url.Action("ExportToExcel","Inward_Register")">Export To Excel</a>
+</div>
+@*
+    @Html.PagedListPager(Model, page => Url.Action("Index", new
+    {    page,
+        option = Request.QueryString["option"],
+        search = Request.QueryString["search"]
+    }),
+        new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true})
+
+*@

@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - WIORMS</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/style1.css")
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    
+
+
+
+
+
+</head>
+<body>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-success">
+        <a class="navbar-brand" href="Home/Index">WIORMS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+
+                @if (Session["role"] != null && Session["role"].ToString().Equals("Admin"))
+                {
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/UserRegistrations/Index">User Registration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/About">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/Contact">Contact</a>
+                    </li>
+                }
+                else if (Session["role"] != null && Session["role"].ToString().Equals("Receptionists"))
+                {
+                    <li class="nav-item dropdown ">
+                        <a class="nav-link active dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Inward Register</a>
+                        <div class="dropdown-menu bg-success">
+                            <a class="nav-link" href="/Inward_Register/Index">Inward Register</a>
+                            <a class="nav-link" href="/Inward_Register/GetList2">Accepted</a>
+                            <a class="nav-link" href="/Inward_Register/GetList3">Rejected</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Outward Register</a>
+                        <div class="dropdown-menu bg-success">
+                            <a class="nav-link" href="/Outward_Register2/Index">Outward Register</a>
+                            <a class="nav-link" href="/Outward_Register2/GetList2">Accepted</a>
+                            <a class="nav-link" href="/Outward_Register2/GetList3">Rejected</a>
+                        </div>
+                    </li>
+                }
+                else if (Session["role"] != null && Session["role"].ToString().Equals("Director"))
+                {
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Inward_Register/GetList">Inward Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Outward_Register2/GetList">Outward Register</a>
+                    </li>
+                }
+                else if (Session["role"] != null && Session["role"].ToString().Equals("Director"))
+                {
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Inward_Register/GetList">Inward Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Outward_Register2/GetList">Outward Register</a>
+                    </li>
+                }
+                else if (Session["role"] != null && Session["role"].ToString().Equals("Deans"))
+                {
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Inward_Register/GetList">Inward Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Outward_Register2/GetList">Outward Register</a>
+                    </li>
+                }
+                else if (Session["role"] != null && Session["role"].ToString().Equals("Faculty"))
+                {
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/GetList4">Inbox of Inward Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Outward_Register2/GetList">Outward Register</a>
+                    </li>
+                }
+
+            </ul>
+            @Html.Partial("_LoginPartial")
+
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - WIORMS</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WIORMSDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdminLogin">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="30" />
+          <Property Name="Role" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Inward_Register">
+          <Key>
+            <PropertyRef Name="InwardNumber" />
+          </Key>
+          <Property Name="InwardNumber" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReceivedOn" Type="date" Nullable="false" />
+          <Property Name="LetterDated" Type="date" Nullable="false" />
+          <Property Name="ReceivedFrom" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="FromAddress" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="FromDistrict" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="FromState" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="FromCountry" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ReplyFor" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ReplyDetails" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="BrowseFile" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="Users" Type="varchar" MaxLength="300" />
+          <Property Name="Status1" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Outward_Register2">
+          <Key>
+            <PropertyRef Name="OutwardNumber" />
+          </Key>
+          <Property Name="OutwardNumber" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LetterDated" Type="date" Nullable="false" />
+          <Property Name="SendTo" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ToAddress" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ToDistrict" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ToState" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ToCountry" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ReplyFor" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ReplyDetails" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="BrowseFile" Type="varchar" MaxLength="250" />
+          <Property Name="SendOn" Type="date" Nullable="false" />
+          <Property Name="DispatchType" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ReceiptFile" Type="varchar" MaxLength="250" />
+          <Property Name="DispatchDetails" Type="varchar" MaxLength="100" />
+          <Property Name="DispatchCharges" Type="numeric" Precision="7" Scale="2" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="UserRegistration">
+          <Key>
+            <PropertyRef Name="StaffCode" />
+          </Key>
+          <Property Name="StaffCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StaffName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="EmailId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Department" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ConfirmPassword" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Role" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="WIORMSDBModelStoreContainer">
+          <EntitySet Name="AdminLogin" EntityType="Self.AdminLogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inward_Register" EntityType="Self.Inward_Register" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Outward_Register2" EntityType="Self.Outward_Register2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRegistration" EntityType="Self.UserRegistration" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WIORMSDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AdminLogin">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Inward_Register">
+          <Key>
+            <PropertyRef Name="InwardNumber" />
+          </Key>
+          <Property Name="InwardNumber" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReceivedOn" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LetterDated" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ReceivedFrom" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Subject" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FromAddress" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FromDistrict" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FromState" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FromCountry" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ReplyFor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ReplyDetails" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BrowseFile" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Users" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Status1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UserRegistration">
+          <Key>
+            <PropertyRef Name="StaffCode" />
+          </Key>
+          <Property Name="StaffCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StaffName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ConfirmPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="WIORMSDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdminLogins" EntityType="Self.AdminLogin" />
+          <EntitySet Name="Inward_Register" EntityType="Self.Inward_Register" />
+          <EntitySet Name="UserRegistrations" EntityType="Self.UserRegistration" />
+          <EntitySet Name="Outward_Register2" EntityType="WIORMSDBModel.Outward_Register2" />
+        </EntityContainer>
+        <EntityType Name="Outward_Register2">
+          <Key>
+            <PropertyRef Name="OutwardNumber" />
+          </Key>
+          <Property Name="OutwardNumber" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LetterDated" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SendTo" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Subject" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ToAddress" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ToDistrict" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ToState" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ToCountry" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ReplyFor" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ReplyDetails" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BrowseFile" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SendOn" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DispatchType" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ReceiptFile" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DispatchDetails" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DispatchCharges" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WIORMSDBModelStoreContainer" CdmEntityContainer="WIORMSDBEntities">
+          <EntitySetMapping Name="AdminLogins">
+            <EntityTypeMapping TypeName="WIORMSDBModel.AdminLogin">
+              <MappingFragment StoreEntitySet="AdminLogin">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inward_Register">
+            <EntityTypeMapping TypeName="WIORMSDBModel.Inward_Register">
+              <MappingFragment StoreEntitySet="Inward_Register">
+                <ScalarProperty Name="Status1" ColumnName="Status1" />
+                <ScalarProperty Name="InwardNumber" ColumnName="InwardNumber" />
+                <ScalarProperty Name="ReceivedOn" ColumnName="ReceivedOn" />
+                <ScalarProperty Name="LetterDated" ColumnName="LetterDated" />
+                <ScalarProperty Name="ReceivedFrom" ColumnName="ReceivedFrom" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="FromAddress" ColumnName="FromAddress" />
+                <ScalarProperty Name="FromDistrict" ColumnName="FromDistrict" />
+                <ScalarProperty Name="FromState" ColumnName="FromState" />
+                <ScalarProperty Name="FromCountry" ColumnName="FromCountry" />
+                <ScalarProperty Name="ReplyFor" ColumnName="ReplyFor" />
+                <ScalarProperty Name="ReplyDetails" ColumnName="ReplyDetails" />
+                <ScalarProperty Name="BrowseFile" ColumnName="BrowseFile" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Users" ColumnName="Users" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRegistrations">
+            <EntityTypeMapping TypeName="WIORMSDBModel.UserRegistration">
+              <MappingFragment StoreEntitySet="UserRegistration">
+                <ScalarProperty Name="StaffCode" ColumnName="StaffCode" />
+                <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Outward_Register2">
+            <EntityTypeMapping TypeName="WIORMSDBModel.Outward_Register2">
+              <MappingFragment StoreEntitySet="Outward_Register2">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DispatchCharges" ColumnName="DispatchCharges" />
+                <ScalarProperty Name="DispatchDetails" ColumnName="DispatchDetails" />
+                <ScalarProperty Name="ReceiptFile" ColumnName="ReceiptFile" />
+                <ScalarProperty Name="DispatchType" ColumnName="DispatchType" />
+                <ScalarProperty Name="SendOn" ColumnName="SendOn" />
+                <ScalarProperty Name="BrowseFile" ColumnName="BrowseFile" />
+                <ScalarProperty Name="ReplyDetails" ColumnName="ReplyDetails" />
+                <ScalarProperty Name="ReplyFor" ColumnName="ReplyFor" />
+                <ScalarProperty Name="ToCountry" ColumnName="ToCountry" />
+                <ScalarProperty Name="ToState" ColumnName="ToState" />
+                <ScalarProperty Name="ToDistrict" ColumnName="ToDistrict" />
+                <ScalarProperty Name="ToAddress" ColumnName="ToAddress" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="SendTo" ColumnName="SendTo" />
+                <ScalarProperty Name="LetterDated" ColumnName="LetterDated" />
+                <ScalarProperty Name="OutwardNumber" ColumnName="OutwardNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

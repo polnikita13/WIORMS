@@ -1,0 +1,107 @@
+﻿@model IEnumerable<finalProject.Models.Inward_Register>
+
+@{
+    ViewBag.Title = "Detailsf";
+}
+
+<h2>Detailsf</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InwardNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceivedOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LetterDated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceivedFrom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FromAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FromDistrict)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FromState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FromCountry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReplyFor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReplyDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BrowseFile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Users)
+        </th>
+      
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.InwardNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceivedOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LetterDated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceivedFrom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FromAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FromDistrict)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FromState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FromCountry)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReplyFor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReplyDetails)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BrowseFile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Users)
+        </td>
+        
+    </tr>
+}
+
+</table>

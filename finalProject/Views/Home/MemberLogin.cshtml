@@ -1,0 +1,78 @@
+﻿@model finalProject.Models.UserRegistration
+
+@{
+    ViewBag.Title = "Member Login";
+}
+<br />
+
+<header id="header">
+
+    <div class="header-main">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="row span5">
+                    <div class="col-md-6">
+
+                    </div>
+                    <div class="span7 col-md-6">
+                        <div class="infoarea">
+                            <span><i class="fa fa-phone"></i>Call us: +91 - 2342 – 220329 , 9970700700, For MBA : 226488, , 9970700810</span>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
+<hr />
+
+<div class="row pt-5 ">
+    <div class="col-md-6 col-md-offset-3 mx-auto ">
+        <div class="panel panel-primary" style="border: 1px solid #000000;">
+            <div class="panel-heading">
+                <center><h2 class="panel-title text-danger">Member Login</h2></center>
+                <hr />
+            </div>
+            <center>
+                <div class="panel-body">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.EmailId, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.EmailId, new { htmlAttributes = new { @class = "form-control", placeholder = "Member User Name" } })
+                                    @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Member Password" } })
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Login" class="btn btn-success form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </center>
+        </div>
+        <span class="text-danger">@ViewBag.msg</span>
+    </div>
+</div>

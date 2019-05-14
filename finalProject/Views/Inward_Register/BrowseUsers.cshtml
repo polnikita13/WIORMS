@@ -1,0 +1,98 @@
+﻿@model IEnumerable<finalProject.Models.UserRegistration>
+
+@{
+    ViewBag.Title = "Browse Users";
+}
+
+<h2>Browse Users</h2>
+
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StaffName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailId)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.ContactNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConfirmPassword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Role)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.CheckBox("chk1", new { value = item.EmailId })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailId)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConfirmPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+
+        </tr>
+    }
+
+</table>
+@using (Html.BeginForm())
+{
+    <input type="hidden" name="data" id="data" />
+    <input type="submit" value="Add to List" onclick="return f1()" />
+}
+<script>
+    function f1() {
+        var inputs = document.getElementsByTagName("input");
+        var str = "";
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].type == "checkbox") {
+                if (inputs[i].checked) {
+                    str = str + inputs[i].value + ",";
+                }
+            }
+        }
+        if (str.length > 0) {
+            document.getElementById("data").value = str;
+            return true;
+        } else {
+            alert("Select at least one row");
+            return false;
+        }
+
+    }
+</script>

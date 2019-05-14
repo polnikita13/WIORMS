@@ -1,0 +1,243 @@
+﻿@model finalProject.Models.Outward_Register2
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    <div>
+        <h4>Outward_Register</h4>
+        @Html.HiddenFor(model => model.OutwardNumber)
+        <hr />
+
+
+        <dl class="dl-horizontal">
+            <div class="row">
+                <div class="col-md-3">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LetterDated)
+                    </dt>
+                </div>
+                <div class="col-md-9">
+                    <dd>
+                        @Html.DisplayFor(model => model.LetterDated)
+                    </dd>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SendTo)
+                    </dt>
+                </div>
+                <div class="col-md-9">
+                    <dd>
+                        @Html.DisplayFor(model => model.SendTo)
+                    </dd>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Subject)
+                    </dt>
+                </div>
+                <div class="col-md-9">
+                    <dd>
+                        @Html.DisplayFor(model => model.Subject)
+                    </dd>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ToAddress)
+                    </dt>
+                </div>
+                <div class="col-md-9">
+                    <dd>
+                        @Html.DisplayFor(model => model.ToAddress)
+                    </dd>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ToDistrict)
+                    </dt>
+                </div>
+                <div class="col-md-9">
+                    <dd>
+                        @Html.DisplayFor(model => model.ToDistrict)
+                    </dd>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ToState)
+                    </dt>
+                </div>
+                <div class="col-md-9">
+                    <dd>
+                        @Html.DisplayFor(model => model.ToState)
+                    </dd>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ToCountry)
+                    </dt>
+                </div>
+                <div class="col-md-9">
+                    <dd>
+                        @Html.DisplayFor(model => model.ToCountry)
+                    </dd>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ReplyFor)
+                    </dt>
+                </div>
+                <div class="col-md-9">
+                    <dd>
+                        @Html.DisplayFor(model => model.ReplyFor)
+                    </dd>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ReplyDetails)
+                    </dt>
+
+                </div>
+                <div class="col-md-9">
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ReplyDetails)
+                    </dd>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.BrowseFile)
+                    </dt>
+                </div>
+                <div class="col-md-9">
+
+                    <dd>
+                        <a href="@Url.Content(Model.BrowseFile)" , target="_blank">View File</a>
+                    </dd>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SendOn)
+                    </dt>
+                </div>
+                <div class="col-md-9">
+                    <dd>
+                        @Html.DisplayFor(model => model.SendOn)
+                    </dd>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DispatchType)
+                    </dt>
+                </div>
+                <div class="col-md-9">
+                    <dd>
+                        @Html.DisplayFor(model => model.DispatchType)
+                    </dd>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ReceiptFile)
+                    </dt>
+                </div>
+                <div class="col-md-9">
+
+                    <dd>
+                        @*<a href="@Url.Content(Model.ReceiptFile)" , target="_blank">View Receipt</a>*@
+                        @{
+                            var fileSource = Model.ReceiptFile == null ? "" : Url.Content(Model.ReceiptFile);
+                        }
+
+                        <a href="@fileSource">View Receipt</a>
+                    </dd>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DispatchDetails)
+                    </dt>
+                </div>
+                <div class="col-md-9">
+
+                    <dd>
+                        @Html.DisplayFor(model => model.DispatchDetails)
+                    </dd>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DispatchCharges)
+                    </dt>
+                </div>
+                <div class="col-md-9">
+
+                    <dd>
+                        @Html.DisplayFor(model => model.DispatchCharges)
+                    </dd>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </dt>
+                </div>
+                <div class="col-md-9">
+
+                    <dd>
+                        @Html.DropDownListFor(Model => Model.Status, new SelectList(new String[] { "Accepted", "Rejected" }))
+                    </dd>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <dd class="form-group">
+                        <br />
+                        <div class="col-md-5">
+                            <input type="submit" value="Update Information" class="btn btn-success" />
+                        </div>
+                    </dd>
+                </div>
+            </div>
+        </dl>
+    </div>
+}
+<p>
+    @Html.ActionLink("Back to List", "GetList")
+</p>

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WIORMSDBModelStoreContainer" CdmEntityContainer="WIORMSDBEntities">
+    <EntitySetMapping Name="AdminLogins">
+      <EntityTypeMapping TypeName="WIORMSDBModel.AdminLogin">
+        <MappingFragment StoreEntitySet="AdminLogin">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inward_Register">
+      <EntityTypeMapping TypeName="WIORMSDBModel.Inward_Register">
+        <MappingFragment StoreEntitySet="Inward_Register">
+          <ScalarProperty Name="Status1" ColumnName="Status1" />
+          <ScalarProperty Name="InwardNumber" ColumnName="InwardNumber" />
+          <ScalarProperty Name="ReceivedOn" ColumnName="ReceivedOn" />
+          <ScalarProperty Name="LetterDated" ColumnName="LetterDated" />
+          <ScalarProperty Name="ReceivedFrom" ColumnName="ReceivedFrom" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="FromAddress" ColumnName="FromAddress" />
+          <ScalarProperty Name="FromDistrict" ColumnName="FromDistrict" />
+          <ScalarProperty Name="FromState" ColumnName="FromState" />
+          <ScalarProperty Name="FromCountry" ColumnName="FromCountry" />
+          <ScalarProperty Name="ReplyFor" ColumnName="ReplyFor" />
+          <ScalarProperty Name="ReplyDetails" ColumnName="ReplyDetails" />
+          <ScalarProperty Name="BrowseFile" ColumnName="BrowseFile" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Users" ColumnName="Users" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRegistrations">
+      <EntityTypeMapping TypeName="WIORMSDBModel.UserRegistration">
+        <MappingFragment StoreEntitySet="UserRegistration">
+          <ScalarProperty Name="StaffCode" ColumnName="StaffCode" />
+          <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Outward_Register2">
+      <EntityTypeMapping TypeName="WIORMSDBModel.Outward_Register2">
+        <MappingFragment StoreEntitySet="Outward_Register2">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DispatchCharges" ColumnName="DispatchCharges" />
+          <ScalarProperty Name="DispatchDetails" ColumnName="DispatchDetails" />
+          <ScalarProperty Name="ReceiptFile" ColumnName="ReceiptFile" />
+          <ScalarProperty Name="DispatchType" ColumnName="DispatchType" />
+          <ScalarProperty Name="SendOn" ColumnName="SendOn" />
+          <ScalarProperty Name="BrowseFile" ColumnName="BrowseFile" />
+          <ScalarProperty Name="ReplyDetails" ColumnName="ReplyDetails" />
+          <ScalarProperty Name="ReplyFor" ColumnName="ReplyFor" />
+          <ScalarProperty Name="ToCountry" ColumnName="ToCountry" />
+          <ScalarProperty Name="ToState" ColumnName="ToState" />
+          <ScalarProperty Name="ToDistrict" ColumnName="ToDistrict" />
+          <ScalarProperty Name="ToAddress" ColumnName="ToAddress" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="SendTo" ColumnName="SendTo" />
+          <ScalarProperty Name="LetterDated" ColumnName="LetterDated" />
+          <ScalarProperty Name="OutwardNumber" ColumnName="OutwardNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,23 @@
+﻿@if (Session["logged"] != null && Convert.ToBoolean(Session["logged"]))
+{
+    <ul class="navbar-nav navbar-right">
+        <li class="navbar-item pt-2 nav-link">
+            @Html.ActionLink("Hello " + Session["user"].ToString() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        </li>
+        <li class="navbar-item">
+            <a class="nav-link" href="/Home/Logout">Logout</a>
+        </li>
+    </ul>
+
+}
+else
+{
+
+    <ul class=" navbar-nav ">
+        <li class="nav-item"><a href="/Home/ALogin" class="nav-link">Admin Login</a></li>
+        <li class="nav-item"><a href="/Home/MemberLogin" class="nav-link">Member Login</a></li>
+    </ul>
+
+
+
+}

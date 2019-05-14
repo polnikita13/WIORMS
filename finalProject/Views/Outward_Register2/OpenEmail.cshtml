@@ -1,0 +1,62 @@
+﻿@model finalProject.Models.Outward_Register2
+
+@{
+    ViewBag.Title = "Send Email Form";
+}
+
+<h2>Send Email Form</h2>
+
+@using (Html.BeginForm("SendEmail", "Outward_Register2", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.OutwardNumber)
+    <div>
+        <h4>Send Email Form</h4>
+        <hr />
+        <dl class="dl-horizontal">
+
+
+            <dt>
+                To
+            </dt>
+
+            <dd>
+                @Html.TextBox("sender")
+            </dd>
+
+            <dt>
+                Subject
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.Subject)
+            </dd>
+            <dt>
+                Body Text
+            </dt>
+
+            <dd>
+                @Html.TextArea("bodytext")
+            </dd>
+            <dt>
+                Attachment
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BrowseFile)
+                @Html.HiddenFor(model => model.BrowseFile)
+            </dd>
+            <dt>
+
+            </dt>
+
+            <dd>
+                <input type="submit" value="Send Mail" class="btn btn-success" />
+            </dd>
+
+        </dl>
+    </div>
+}
+<p>
+
+    @Html.ActionLink("Back to Approved List", "GetList2")
+</p>

@@ -1,0 +1,110 @@
+﻿@model finalProject.Models.EmailMode
+@{
+    ViewBag.Title = "Index1";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <!--<style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+
+        table th, table td {
+            padding: 5px;
+        }
+    </style>-->
+</head>
+<body>
+    <div>
+        <br />
+        <div style="border: 1px solid #000000;" class="col-md-6 mx-auto ">
+            <center><h3 class="text-danger p-3">Email</h3></center>
+           
+            <hr />
+
+
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-md-6  mx-auto">
+                        <div class="panel panel-primary">
+                            <div class="panel-body">
+
+                                @using (Html.BeginForm("Index1", "Outward_Register2", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <table class=" pt-3 ">
+                                        <tr>
+                                            <td style="width: 100px">
+                                                To:
+                                            </td>
+                                            <td>
+                                                @Html.TextBoxFor(model => model.To)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Subject:
+                                            </td>
+                                            <td>
+                                                @Html.TextBoxFor(model => model.Subject)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top">
+                                                Body:
+                                            </td>
+                                            <td>
+                                                @Html.TextAreaFor(model => model.Body, new { rows = "3", cols = "20" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                File Attachment:
+                                            </td>
+                                            <td>
+                                                @Html.TextBoxFor(model => model.Attachment, new { type = "file" })
+                                            </td>
+                                        </tr>
+                                        <!--  <tr>
+                <td>
+                    Gmail Email:
+                </td>
+                <td>
+                  @*  @Html.TextBoxFor(model => model.Email)*@
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Gmail Password:
+                </td>
+                <td>
+
+                   @* @Html.TextBoxFor(model => model.Password, new { type = "password" })*@
+                </td>
+            </tr>
+              -->
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <input type="submit" value="Send" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br />
+                                    @*<b> <span style="color:green">@ViewBag.Message</span></b>*@
+                                    @Html.Raw(TempData["msg"])
+                                }
+                            </div>
+</div>
+</div>
+</div>
+</div>
+            </div>
+                            </div>
+</body>
+</html>

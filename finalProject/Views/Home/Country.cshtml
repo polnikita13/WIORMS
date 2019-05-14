@@ -1,0 +1,24 @@
+﻿@model finalProject.Models.CountryStateViewModel
+@{
+    ViewBag.Title = "Country";
+}
+<br />
+
+<div class="container">
+    <div class="form-group">
+        @if (ViewBag.CountryList != null)
+        {
+            @Html.DropDownListFor(model => model.CountryId, ViewBag.CountryList as SelectList, "--Select Country--", new { @class = "form-control" })
+        }
+
+    </div>
+    <div class="form-group">
+        @if (ViewBag.CountryList != null)
+        {
+            @Html.DropDownListFor(model => model.StateId, new SelectList(" "), "--Select State --", new { @class = "form-control" })
+        }
+
+    </div>
+
+</div>
+

@@ -1,0 +1,132 @@
+﻿@model IEnumerable<finalProject.Models.Outward_Register2>
+
+@{
+    ViewBag.Title = "GetList2";
+}
+
+<center><h2 class="text-danger pt-3">Approved Outward Register</h2></center>
+
+
+<hr />
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OutwardNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LetterDated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SendTo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToDistrict)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToCountry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReplyFor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReplyDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BrowseFile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SendOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DispatchType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceiptFile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DispatchDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DispatchCharges)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OutwardNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LetterDated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SendTo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToDistrict)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToCountry)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReplyFor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReplyDetails)
+        </td>
+        <td>
+            <a href="@Url.Content(item.BrowseFile)" target="_blank">View File</a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SendOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DispatchType)
+        </td>
+        <td>
+            @{
+                var fileSource = item.ReceiptFile == null ? "" : Url.Content(item.ReceiptFile);
+            }
+            @* <a href="@Url.Content(item.ReceiptFile)" target="_blank">View Receipt</a>*@
+            <a href="@fileSource">View Receipt</a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DispatchDetails)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DispatchCharges)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Email", "Index1", new { id = item.OutwardNumber })
+
+        </td>
+    </tr>
+    }
+
+</table>
